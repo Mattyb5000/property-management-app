@@ -5,5 +5,7 @@ const router = require('express').Router();
 
 // router.use('/', homeRoutes);
 // router.use('/api', apiRoutes);
-
+router.get('/', (req, res) => {
+    res.send("Connection has been made!")
+})
 module.exports = router;
