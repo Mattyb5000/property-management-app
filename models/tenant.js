@@ -22,10 +22,6 @@ Tenant.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    leaseEnd: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
     first_name: {
       type: DataTypes.STRING,
       allowNull: false,
