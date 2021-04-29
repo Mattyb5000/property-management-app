@@ -7,30 +7,32 @@ async function newFormHandler(event) {
     // const currentTenants = document.querySelector('#current_tenants').value;
     const leaseStart = document.querySelector('#lease_start').value;
     const leaseEnd = document.querySelector('#lease_end').value;
-    const sqFootage = document.querySelector('#square_footage');
-    const propType = document.querySelector('#property_type');
+    const squareFootage = document.querySelector('#square_footage');
+    const propertyType = document.querySelector('#property_type');
   
-    const response = await fetch(`.../add_property`, {
+    //where am I fetching from? just the api route to get the data
+    const response = await fetch(`/api/property`, {
       method: 'POST',
       body: JSON.stringify({
         address,
-        leaseStart,
+        leaseStart
         leaseEnd,
-        sqFootage,
-        propType,
+        squareFootage,
+        propertyType,
       }),
+     
       headers: {
         'Content-Type': 'application/json',
       },
     });
   
-    if (response.ok) {""
+    if (response.ok) {
       document.location.replace('/property_dashboard');
     } else {
       alert('Failed to add property');
     }
-  }
+  };
   
   //add a property submit button
-  document.querySelector('.new-property-form').addEventListener('submit', newFormHandler);
+  document.querySelector('#new-property-form').addEventListener('submit', newFormHandler);
   
