@@ -1,5 +1,4 @@
 
-
 const tenantData = [
   {
     phone_number: '706-528-3645',
