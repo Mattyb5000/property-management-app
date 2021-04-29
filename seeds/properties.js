@@ -43,6 +43,6 @@ const propertyData = [
   },
 ];
 
-// const seedProperty = () => properties.bulkCreate(propertyData);
+
 
 module.exports = propertyData;
