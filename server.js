@@ -2,8 +2,7 @@ const path = require('path');
 const express = require('express');
 // const session = require('express-session');
 const exphbs = require('express-handlebars');
-const routes = require('./controllers');
-const models = require('./models')
+//const routes = require('./controllers'); //requiring the routes-ST
 // const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
@@ -33,7 +32,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(routes);
+//app.use(routes); //triggering the routes with Express-ST
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'));

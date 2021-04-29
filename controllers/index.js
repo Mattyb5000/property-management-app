@@ -1,11 +1,12 @@
-const router = require('express').Router();
+const router = require('express').Router(); //Router object 
 
-// const apiRoutes = require('./api');
-// const homeRoutes = require('./homeRoutes');
+const apiRoutes = require('./api');
+const propertyRoutes = require('./property');
+const tenantRoutes = require('./tenant');
 
-// router.use('/', homeRoutes);
-// router.use('/api', apiRoutes);
-router.get('/', (req, res) => {
-    res.send("Connection has been made!")
-})
+router.use('/', homeRoutes);
+router.use('/property', propertyRoutes);
+router.use('/tenant', tenantRoutes);
+router.use('/api', apiRoutes);
+
 module.exports = router;
