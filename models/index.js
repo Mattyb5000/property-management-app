@@ -1,6 +1,6 @@
-const Property = require('./properties');
-const Tenant = require('./tenants');
-const User = require('./users');
+const Property = require('./property');
+const Tenant = require('./tenant');
+const User = require('./user');
 
 User.hasMany(Property, {
   foreignKey: 'landlord_id',
