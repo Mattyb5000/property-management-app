@@ -6,6 +6,8 @@ const tenantData = [
     email: 'boblazzar@email.com',
     first_name: 'Bob',
     last_name: 'Lazzar',
+    emer_contact_name: 'Bob Barker',
+    emer_contact_phone: '404-555-8888',
     property_id: 1,
   },
   {
@@ -13,6 +15,8 @@ const tenantData = [
     email: 'debralazzar@email.com',
     first_name: 'Debra',
     last_name: 'Lazzar',
+    emer_contact_name: 'Bob Barker',
+    emer_contact_phone: '404-555-8888',
     property_id: 1,
   },
   {
@@ -20,6 +24,8 @@ const tenantData = [
     email: 'greg@email.com',
     first_name: 'Gregory',
     last_name: 'Wilberton',
+    emer_contact_name: 'Bob Barker',
+    emer_contact_phone: '404-555-8888',
     property_id: 2,
   },
   {
@@ -27,6 +33,8 @@ const tenantData = [
     email: 'nimblelizzard@email.com',
     first_name: 'Ernest',
     last_name: 'Ebenstein',
+    emer_contact_name: 'Bob Barker',
+    emer_contact_phone: '404-555-8888',
     property_id: 3,
   },
   {
@@ -34,6 +42,8 @@ const tenantData = [
     email: 'crispyquail@email.com',
     first_name: 'Tiger',
     last_name: 'Woods',
+    emer_contact_name: 'Bob Barker',
+    emer_contact_phone: '404-555-8888',
     property_id: 4,
   },
   {
@@ -41,6 +51,8 @@ const tenantData = [
     email: 'crazycricket@email.com',
     first_name: 'William',
     last_name: 'Thornsburg',
+    emer_contact_name: 'Bob Barker',
+    emer_contact_phone: '404-555-8888',
     property_id: 5,
   },
 ];
