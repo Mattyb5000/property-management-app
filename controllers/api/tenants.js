@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Tenant } = require('../models');
+const { Tenant } = require('../../models');
 
 //route to get all tenants
 router.get('/', async (req, res) => {
@@ -25,8 +25,8 @@ router.get('/', async (req, res) => {
           };     
       });
     
-      const router = require('express').Router();
-const { tenant } = require('../../models');
+      // const router = require('express').Router();
+// const { tenant } = require('../../models');
 
 //route to create a new tenant
 router.post('/', async (req, res) => {
