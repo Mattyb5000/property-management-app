@@ -16,7 +16,18 @@ router.get('/', async (req, res) => {
 
 // render view tenant
 
-
+router.get('/view', async (req, res) => {
+    const tenantData = await Tenant.findAll({
+        where: {
+            id: 1
+        }
+    }).catch((err) => { 
+        res.json(err);
+      });
+        const tenants = tenantData.map((tenants) => tenants.get({ plain: true }));
+        console.log("This is the right data", tenants);
+         res.render('view_tenant', {tenants});
+});
 
 
 
