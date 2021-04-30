@@ -30,6 +30,14 @@ Tenant.init(
         type: DataTypes.STRING,
         allowNull: false,
       },
+    emer_contact_name: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    emer_contact_phone: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     property_id: {
         type: DataTypes.INTEGER,
         references: {
