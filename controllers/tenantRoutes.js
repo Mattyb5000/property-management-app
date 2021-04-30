@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
 router.get('/view', async (req, res) => {
     const tenantData = await Tenant.findAll({
         where: {
-            id: 1
+            id: req.params.userbutton //TODO change value later
         }
     }).catch((err) => { 
         res.json(err);
