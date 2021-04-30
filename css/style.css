@@ -1,0 +1,147 @@
+.top-nav {
+	height: 150px;
+	position: absolute;
+	transition: 0.2s ease-in;
+	-webkit-transition: 0.2s ease-in;
+	-moz-transition: 0.2s ease-in;
+}
+
+.top-nav .navbar-nav li .nav-link {
+	color: #fff;
+	font-size: 24px;
+	padding: 6px 26px;
+	margin: 6px 5px 0;
+	font-weight: 400;
+	text-transform: uppercase;
+	transition: 0.2s ease-in;
+	-webkit-transition: 0.2s ease-in;
+	-moz-transition: 0.2s ease-in;
+}
+
+.top-nav li a.nav-link:hover,
+.top-nav .nav-item.active a.nav-link {
+	color: #016cf7;
+	background-color: #fc9001;
+	border-color: #016cf7;
+	border-radius: 50px;
+	transition: 0.5s ease-in;
+	-webkit-transition: 0.5s ease-in;
+	-moz-transition: 0.5s ease-in;
+}
+
+.top-nav .navbar-brand {
+	font-size: 28px;
+	color: #016cf7;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.top-nav.light-header {
+	height: 120px;
+	background: rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.23);
+	transition: 0.5s ease-in;
+	-webkit-transition: 0.5s ease-in;
+	-moz-transition: 0.5s ease-in;
+	z-index: 9999;
+}
+
+.top-nav.light-header .navbar-brand {
+	color: #fff;
+}
+
+.top-nav.light-header .search-box li a.nav-link {
+	padding: 6px 15px;
+	border: 1px solid #fff;
+}
+
+.top-nav.light-header .search-box li a.nav-link i {
+	color: #fff !important;
+}
+
+.main-bg {
+	background-image: url("../images/pm_background.png");
+	/* background-repeat: no-repeat; */
+	background-position: center;
+	background-size: cover;
+	width: 100vh;
+}
+
+.container {
+	position: absolute;
+	height: 100%;
+	align-content: center;
+}
+
+.card {
+	height: 500px;
+	margin-top: auto;
+	margin-bottom: auto;
+	width: 400px;
+	background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.social_icon span {
+	font-size: 60px;
+	margin-left: 10px;
+	color: #FFC312;
+}
+
+.social_icon span:hover {
+	color: white;
+	cursor: pointer;
+}
+
+.card-header h3 {
+	text-align: center;
+	color: white;
+}
+
+.social_icon {
+	position: absolute;
+	right: 20px;
+	top: -45px;
+}
+
+.input-group-prepend span {
+	width: 50px;
+	background-color: #FFC312;
+	color: black;
+	border: 0 !important;
+}
+
+input:focus {
+	outline: 0 0 0 0 !important;
+	box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember {
+	color: white;
+}
+
+.remember input {
+	width: 20px;
+	height: 20px;
+	margin-left: 15px;
+	margin-right: 5px;
+}
+
+.login_btn {
+	color: black;
+	background-color: #FFC312;
+	width: 100px;
+}
+
+.login_btn:hover {
+	color: black;
+	background-color: white;
+}
+
+.links {
+	color: white;
+}
+
+.links a {
+	margin-left: 4px;
+}
+
