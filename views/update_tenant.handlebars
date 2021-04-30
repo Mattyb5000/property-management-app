@@ -1,23 +1,36 @@
-<div class="row mt-4">
-  <div class="col-md-6">
-    <h3>Create a New Project:</h3>
-
-    <form class="form new-project-form">
-      <div class="form-group">
-        <label for="project-name">project name:</label>
-        <input class="form-input" type="text" id="project-name" name="project-name" />
-      </div>
-      <div class="form-group">
-        <label for="project-funding">needed funding ($):</label>
-        <input class="form-input" type="number" id="project-funding" name="project-funding" />
-      </div>
-      <div class="form-group">
-        <label for="project-desc">description:</label>
-        <textarea class="form-input" id="project-desc" name="project-desc"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
-  </div>
-
+<br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="col-12 col-md-7">
+                <h3>Update Tenant:</h3>
+                <br>
+                <form class="form new-tenant-form" id="update_tenant">
+                    <div class="form-group">
+                        <label for="tenant_first_name">Tenant First Name:</label>
+                        <textarea class="form-control my-2" rows="1" id="tenant_first_name" name="tenant_first_name"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tenant_last_name">Tenant Last Name:</label>
+                        <textarea class="form-control my-2" rows="1" id="tenant_last_name" name="tenant_last_name"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="tenant_phone">Tenant Phone Number:</label>
+                        <textarea class="form-control my-2" rows="1" id="tenant_phone" name="tenant_phone"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="emergency_contact">Emergency Contact Name & Phone Number:</label>
+                        <textarea class="form-control my-2" rows="1" id="emergency_contact" name="emergency_contact"></textarea>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+    
+    <script src="/public/js/update_tenant.js"></script>

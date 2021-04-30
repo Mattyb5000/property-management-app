@@ -1,6 +1,6 @@
 const router = require('express').Router(); //Router object 
 
-const addProperty = require('./property/add_property');
+const addProperty = require('./add_property');
 const displayProperty = require('./display_property');
 const propertyDashboard = require('./property_dashboard_route');
 
