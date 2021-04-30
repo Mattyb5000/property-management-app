@@ -1,101 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Routes Property Management</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
-<div class = "navigation">
-  <div class="container">
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-  <div class="navbar-collapse collapse w-90 order-1 order-md-0 dual-collapse2">
-      <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
-          </li>
-      </ul>
-  </div>
-  <div class="mx-auto order-0">
-    <div class="row justify-content-md-center">
-      <a class="navbar-brand mx-auto"><h1>Property Management</h1></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-          <span class="navbar-toggler-icon"></span>
-      </button>
+  <nav class="navbar navbar-expand-md fixed-top top-nav light-header">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="index.html"><img src="images/home-route-logo.png" alt="Home Route Logo" width="150" height="115"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav m-auto text-sm-center text-md-center">
+              <li class="nav-item">
+                <a class="nav-link" href="#properties_1">Properties</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#tenants_1">Tenants</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#leases_1">Leases</a>
+              </li>
       </div>
-  </div>
-  <div class="navbar-collapse collapse w-60 order-3 dual-collapse2">
-      <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <button type="button" class="btn btn-info mx-2">Property</button>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-info mx-2">Leases</button>
-          </li>
-          <li class="nav-item">
-            <button type="button" class="btn btn-info mx-2">Tennants</button>
-          </li>
-      </ul>
-  </div>
-</div>
-</div>
-</div>
-</nav>
-<body>
-  <div class= "container w-40 my-5">
-    <section>
-      <h3>login</h3>
-      <form>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email address</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-        </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-    </section>
+    </nav>
     <br>
     <br>
-    <section>
-        <h3>Sign-Up</h3>
-        <form>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <br>
+    <body>
+      <body>
+        <div class="container main-bg">
+          <div class="d-flex justify-content-center h-100">
+            <div class="card">
+              <div class="card-header">
+                <h3>Login</h3>
+              <div class="card-body">
+                <form>
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" class="form-control" placeholder="username">
+                    
+                  </div>
+                  <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <input type="password" class="form-control" placeholder="password">
+                  </div>
+                  <div class="form-group">
+                    <input type="submit" value="Login" class="btn float-right login_btn">
+                  </div>
+                </form>
+              </div>
+              <br>
+              <br>
+              <div>
+                <div class="card-header">
+                  <h3>Sign-Up</h3>
+              <form>
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="username">
+                  
+                </div>
+                <div class="input-group form-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-key"></i></span>
+                  </div>
+                  <span id="password-signup1">
+                  <input type="password" class="form-control" placeholder="Password"></span>
+                  <span id="password-signup2">
+                  <input type="password" class="form-control" placeholder="Repeat Password"></span>
+                </div>
+                <div class="row align-items-center remember">
+                  <input type="checkbox">Remember Me
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Login" class="btn float-right login_btn">
+                </div>
+              </form>
+            </div>
+            </div>
+              <div class="card-footer">
+              </div>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Confirm Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-          </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
-    </section>
-  </div>   
-</body>
-<footer class="bg-light text-center text-lg-start">
-  <div class="container p-4">
-    <div class="row">
-      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="d-inline p-2 bg-dark text-white">Company Name</h5>
-        <h5 class="d-inline p-2 bg-dark text-white">Phone Number</h5>
-        <h5 class="d-inline p-2 bg-dark text-white">Company Name</h5>
-        <a class="d-inline p-2 text-dark" href="MAILTO:ouremail@gmail.com">Email Us</a>
-      </div>
-  <div class="d-inline p-3 text-dark">
-    © 2021 Copyright:
-    <a class="text-dark" href="...">Property Management</a>
-  </div>
-  <!-- Copyright -->
-</footer>
-<!-- Footer -->
+        </div>
+      </body>
+  
+
 </html>
