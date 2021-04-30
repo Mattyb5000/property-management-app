@@ -14,8 +14,7 @@ router.get('/', async (req, res) => {
 
 
 
-// render view tenant
-
+// render view single tenant page
 router.get('/view', async (req, res) => {
     const tenantData = await Tenant.findAll({
         where: {
@@ -31,8 +30,9 @@ router.get('/view', async (req, res) => {
 
 
 
-// render update tenant
-
-
+// render update tenant page
+router.get('/update', async (req, res) => {
+         res.render('update_tenant');
+});
 
 module.exports = router;
