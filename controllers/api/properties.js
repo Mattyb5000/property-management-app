@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Property } = require('../models');
+const { Property } = require('../../models');
 
 //route to get all properties
 router.get('/', async (req, res) => {
@@ -25,8 +25,8 @@ router.get('/', async (req, res) => {
           };     
       });
     
-      const router = require('express').Router();
-const { Property } = require('../../models');
+      // const router = require('express').Router();
+// const { Property } = require('../../models');
 
 //route to create a new property
 router.post('/', async (req, res) => {
