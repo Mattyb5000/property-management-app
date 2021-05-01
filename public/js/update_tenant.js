@@ -1,5 +1,5 @@
 //function event handler to handle the form contents
-const updatePage = document.querySelector('#updatePage')
+const updatePage = document.getElementById('#updatePage')
 
 
 const updateTenantFormHandler = async (event) => {
@@ -43,6 +43,11 @@ const updateTenantFormHandler = async (event) => {
   }
   
 
+  function sendMe() {
+    console.log("kdfshjgohosdhg")
+  };
+
+ updatePage.addEventListener('click', sendMe());
  
 
 

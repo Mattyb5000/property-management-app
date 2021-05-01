@@ -29,7 +29,7 @@ const { Tenant } = require('../../models');
 // const { tenant } = require('../../models');
 
 
-//route to update tenant
+// route to update tenant
 // router.put('/', (req, res) => {
 //   Tenant.update(
 //     {
