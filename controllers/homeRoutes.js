@@ -7,7 +7,7 @@ router.get('/', withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
+      order: [['name']],
     });
 
     const users = userData.map((property) => property.get({ plain: true }));
@@ -22,25 +22,25 @@ router.get('/', withAuth, async (req, res) => {
   }
 });
 
-router.get('/login', (req, res) => {
+router.get('/homepage', (req, res) => {
   // If a session exists, redirect the request to the homepage
   if (req.session.logged_in) {
     res.redirect('/');
     return;
   }
 
-  res.render('login');
+  res.render('homepage');
 });
 
 // Use withAuth middleware to prevent access to route
-router.get('/login', (req, res) => {
+router.get('/homepage', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/property');
     return;
   }
 
-  res.render('login');
+  res.render('homepage');
 });
 
 module.exports = router;
