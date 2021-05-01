@@ -56,6 +56,4 @@ const tenantData = [
   },
 ];
 
-
-
 module.exports = tenantData;
