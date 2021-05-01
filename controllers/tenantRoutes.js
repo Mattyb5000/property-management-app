@@ -15,18 +15,18 @@ router.get('/', async (req, res) => {
         res.json(err);
       });
         const tenants = tenantData.map((tenants) => tenants.get({ plain: true }));
-        console.log("This is the right data", tenants);
+        // console.log("This is the right data", tenants);
          res.render('all_tenants', {tenants});
 });
 
 
 
 // render view single tenant page
-router.get('/view', async (req, res) => {
+router.get('/view/:id', async (req, res) => {
     const tenantData = await Tenant.findAll({
-        where: {
-            id: req.params.userbutton //TODO change value later
-        }
+      where: {
+          id: req.params.id
+      },
     }).catch((err) => { 
         res.json(err);
       });
