@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Property, User } = require('../models');
-
+const withAuth = require('../utils/auth');
 //property_dashboard route--displays all properties
 
 router.get('/', async (req, res) => {
