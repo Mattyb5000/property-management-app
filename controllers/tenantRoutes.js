@@ -1,10 +1,17 @@
 const router = require('express').Router();
-const { Tenant } = require('../models');
+const { Tenant, Property } = require('../models');
 
 
 // render all tenants
 router.get('/', async (req, res) => {
-    const tenantData = await Tenant.findAll().catch((err) => { 
+    const tenantData = await Tenant.findAll({
+        include: [
+          {
+            model: Property,
+            attributes: ['address', 'leaseEnd'],
+          },
+        ],
+      }).catch((err) => { 
         res.json(err);
       });
         const tenants = tenantData.map((tenants) => tenants.get({ plain: true }));
