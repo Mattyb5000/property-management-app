@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
       });
         const properties = propertyData.map((properties) => properties.get({ plain: true }));
         console.log("YOURE ON THE RIGHT TRACK SOP!", properties);
-        // res.render('property_dashboard', { properties });
-    // }
+        res.render('property_dashboard', { properties });
+  
       });
 
     // route to add_view a single property on display_property
