@@ -29,7 +29,7 @@ router.get('/login', (req, res) => {
     return;
   }
 
-  res.render('login');
+  res.render('login');//*create handlebars for login page
 });
 
 // Use withAuth middleware to prevent access to route
