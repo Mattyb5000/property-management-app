@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User} = require('../models');
+const { User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
@@ -10,7 +10,7 @@ router.get('/', withAuth, async (req, res) => {
       order: [['name']],
     });
 
-    const users = userData.map((property) => property.get({ plain: true }));
+    const users = userData.map((user) => User.get({ plain: true }));
 
     res.render('homepage', {
       users,
@@ -19,6 +19,7 @@ router.get('/', withAuth, async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+    console.log ("Let's do this!!!!");
   }
 });
 
@@ -30,6 +31,7 @@ router.get('/homepage', (req, res) => {
   }
 
   res.render('homepage');
+  console.log ("Let's do this together!!!!");
 });
 
 // Use withAuth middleware to prevent access to route
@@ -41,6 +43,7 @@ router.get('/homepage', (req, res) => {
   }
 
   res.render('homepage');
+  console.log ("Let's do this together soooooooooooon!!!!");
 });
 
 module.exports = router;
