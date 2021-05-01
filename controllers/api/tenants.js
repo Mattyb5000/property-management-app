@@ -28,6 +28,39 @@ const { Tenant } = require('../../models');
       // const router = require('express').Router();
 // const { tenant } = require('../../models');
 
+
+//route to update tenant
+// router.put('/', (req, res) => {
+//   Tenant.update(
+//     {
+//       phone_number: req.body.phone_number,
+//       email: req.body.email,
+//       last_name: req.body.last_name,
+//       first_name: req.body.first_name,
+//       last_name: req.body.last_name,
+//       emer_contact_name: req.body.emer_contact_name,
+//       emer_contact_phone: req.body.emer_contact_phone,
+//     },
+//     {
+
+//       where: {
+//         id: req.params.id,
+//       },
+//     }
+//   )
+//     .then((updatedTenant) => {
+//       // Sends the updated book as a json response
+//       res.json(updatedTenant);
+//     })
+//     .catch((err) => res.json(err));
+// });
+
+
+
+
+
+
+
 //route to create a new tenant
 router.post('/', async (req, res) => {
   try {
