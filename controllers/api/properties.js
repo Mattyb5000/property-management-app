@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Property } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 //route to get all properties
 // router.get('/', async (req, res) => {
@@ -29,7 +30,8 @@ const { Property } = require('../../models');
 // const { Property } = require('../../models');
 
 //route to create a new property
-router.post('/', async (req, res) => {
+
+router.post('/', withAuth, async (req, res) => {
   try {
     const newProperty = await Property.create({
       ...req.body,
