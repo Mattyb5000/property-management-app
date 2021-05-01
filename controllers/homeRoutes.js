@@ -3,19 +3,19 @@ const { User} = require('../models');
 const withAuth = require('../utils/auth');
 
 // Prevent non logged in users from viewing the homepage
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll({
-      attributes: { exclude: ['password'] },
-      order: [['name', 'ASC']],
+      // attributes: { exclude: ['password'] },
+      // order: [['name', 'ASC']],
     });
 
     const users = userData.map((property) => property.get({ plain: true }));
-
+    console.log(users)
     res.render('homepage', {
       users,
       // Pass the logged in flag to the template
-      logged_in: req.session.logged_in,
+      // logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
