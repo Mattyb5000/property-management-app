@@ -30,7 +30,7 @@ const updateTenantFormHandler = async (event) => {
   
     if (response.ok) {
       //redirect to `/view_tenant/${id}`
-      document.location.replace(`/view_tenant/${id}`);
+      document.location.replace(`/tenant/view/${id}`);
     } else {
       alert('Failed to edit tenant');
     }
