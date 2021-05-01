@@ -1,7 +1,7 @@
 <br>
 <br>
 <br>
-{{#if tenants.length}}
+{{#if tenants}}
 <div class="container view-tenants-cont">
   <br>
   <br>
@@ -15,7 +15,7 @@
 
     <div class="row flex-row ">
       <div class="col-12 col-md-12 tenant-list">
-
+ {{#each tenants as |tenant|}}
         <table class="table .table-bordered ">
           <thead>
             <tr>
@@ -34,6 +34,7 @@
             </tr>
           </tbody>
         </table>
+        {{/each}}
       </div>
     </div>
   </div>
