@@ -14,7 +14,6 @@ router.get('/', async (req, res) => {
       });
 
     // route to add_view a single property on display_property
-
     router.get('/:id', async (req, res) => {
         try {
           const propertyData = await Property.findByPk(req.params.id, {

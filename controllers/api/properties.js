@@ -41,6 +41,7 @@ router.post('/', withAuth, async (req, res) => {
     res.status(200).json(newProperty);
   } catch (err) {
     res.status(400).json(err);
+    res.render('add_property', { property });
   }
 });
 
