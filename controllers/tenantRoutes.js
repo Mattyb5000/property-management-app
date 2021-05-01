@@ -1,10 +1,17 @@
 const router = require('express').Router();
-const { Tenant } = require('../models');
+const { Tenant, Property } = require('../models');
 
 
 // render all tenants
 router.get('/', async (req, res) => {
-    const tenantData = await Tenant.findAll().catch((err) => { 
+    const tenantData = await Tenant.findAll({
+        include: [
+          {
+            model: Property,
+            attributes: ['address', 'leaseEnd'],
+          },
+        ],
+      }).catch((err) => { 
         res.json(err);
       });
         const tenants = tenantData.map((tenants) => tenants.get({ plain: true }));
@@ -14,14 +21,25 @@ router.get('/', async (req, res) => {
 
 
 
-// render view tenant
+// render view single tenant page
+router.get('/view', async (req, res) => {
+    const tenantData = await Tenant.findAll({
+        where: {
+            id: req.params.userbutton //TODO change value later
+        }
+    }).catch((err) => { 
+        res.json(err);
+      });
+        const tenants = tenantData.map((tenants) => tenants.get({ plain: true }));
+        console.log("This is the right data", tenants);
+         res.render('view_tenant', {tenants});
+});
 
 
 
-
-
-// render update tenant
-
-
+// render update tenant page
+router.get('/update', async (req, res) => {
+         res.render('update_tenant');
+});
 
 module.exports = router;
