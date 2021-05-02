@@ -37,11 +37,12 @@
       });
       
       if (response.ok) {
-        //redirect to `/view_tenant/${id}`
-        // document.location.replace(`/tenant/view/:id`);
-        alert('it worked!!!!!!!!!!!');
+        document.location.reload();
+        document.location.replace(`/tenant`);
+        
     } else {
-      alert('Failed to edit tenant');
+      document.location.reload();
+      document.location.replace(`/tenant`);
     }
   };
   
