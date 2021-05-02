@@ -1,81 +1,70 @@
 const router = require('express').Router();
 const { Property, User } = require('../models');
-const withAuth = require('../utils/auth');
 
+// GET all properties for homepage
 router.get('/', async (req, res) => {
   try {
-    // Get all propertiess and JOIN with user data
     const propertyData = await Property.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['id'],
         },
       ],
     });
 
-    // Serialize data so the template can read it
-    const properties = propertyData.map((property) => Property.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      properties, 
-      logged_in: req.session.logged_in 
+    const properties = propertyData.map((property) =>
+      property.get({ plain: true })
+    );
+    // Send over the 'loggedIn' session variable to the 'homepage' template
+    res.render('homepage', {
+      properties,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
+// GET one property
 router.get('/property/:id', async (req, res) => {
   try {
     const propertyData = await property.findByPk(req.params.id, {
       include: [
         {
-          model: User,
-          attributes: ['name'],
+          model: Property,
+          attributes: [
+            'id',
+            'address',
+            'leaseStart',
+            'leaseEnd',
+            'squareFootage',
+            'propertyType',
+            'landlord_id'
+          ],
         },
       ],
     });
 
     const property = propertyData.get({ plain: true });
-
-    res.render('property', {
-      ...property,
-      logged_in: req.session.logged_in
-    });
+    // Send over the 'loggedIn' session variable to the 'property' template
+    res.render('property', { property, loggedIn: req.session.loggedIn });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: property }],
-    });
 
-    const user = userData.get({ plain: true });
-
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
+// Login route
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
-    res.redirect('/profile');
+  // If the user is already logged in, redirect to the homepage
+  if (req.session.loggedIn) {
+    res.redirect('/');
     return;
   }
-
+  // Otherwise, render the 'login' template
   res.render('login');
 });
 
