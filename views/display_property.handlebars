@@ -1,3 +1,10 @@
+<br>
+<br>
+<br>
+{{#if properties}}
+<div class="container view-properties-cont">
+  <br>
+  <br>
   <br>
   <div class="row d-flex justify-content-center">
     <div class="col-10 text-center">
@@ -22,14 +29,14 @@
           </thead>
           <tbody>
             <tr>
-              <td>{{property.address}}</td>
+               <td>{{property.Address}}</td>
               <td>{{property.id}}</td>
-             <td>{{tenant.first_name}} {{tenant.last_name}}</td>
-              <td>{{property.leaseStart}} {{property.leaseEnd}}</td>
+               <td>{{tenant.first_name}} {{tenant.last_name}}</td>
+              <td>{{property.leaseStart}}{{property.leaseEnd}}</td>
               <td>{{property.squareFootage}}</td>
               <td>{{property.type}}</td>
             </tr>
-            <button id="updatePage">Update property</button>
+            <button id="add_property">Update Property</button>
           </tbody>
         </table>
         {{/each}}

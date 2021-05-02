@@ -13,30 +13,29 @@ router.get('/', async (req, res) => {
   
       });
 
-    // route to add_view a single property on display_property
+    // route to view a single property on display_property
     router.get('/:id', async (req, res) => {
-        try {
-          const propertyData = await Property.findByPk(req.params.id, {
-            include: [
-              {
-                model: User,
-                attributes: [
-                  'id'
-                ],
-              },
-            ],
-          });
-      
-          const property = propertyData.get({ plain: true });
-          console.log ("WE REAAAAAAAAAAAAAAAADY!!!!!", property);
-          res.render('display_property', { property });
-        } catch (err) {
-          console.log(err);
-         
-          res.status(500).json(err);
-        }
-      });
-
+      try {
+        const propertyData = await Property.findByPk(req.params.id, {
+          include: [
+            {
+              model: User,
+              attributes: [
+                'id'
+              ],
+            },
+          ],
+        });
+    
+        const property = propertyData.get({ plain: true });
+        console.log ("WE REAAAAAAAAAAAAAAAADY!!!!!", property);
+        res.render('display_property', { property });
+      } catch (err) {
+        console.log(err);
+       
+        res.status(500).json(err);
+      }
+    });
       // router.get('/property', withAuth, async (req, res) => {
       //   try {
       //     // Find the logged in user based on the session ID
