@@ -5,6 +5,7 @@
 <br>
 <br>
 <br>
+ {{#if loggedIn}}
 {{#if properties}}
 <div class="container all-properties-cont">
     <br>
@@ -36,4 +37,7 @@
     </div>
     {{/each}}
 </div>
+{{/if}}
+{{else}}
+<a href="/login">You must login to view Properties</a>
 {{/if}}
