@@ -3,8 +3,8 @@
     <br>
 
 
-<!-- {{#if tenants.length}} -->
-<div class="container view-tenants-cont">
+{{#if property}}
+<div class="container view-properties-cont">
     <br>
     <br>
     <br>
@@ -24,19 +24,13 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>555 Five St</td>
-                    <td>01/01/2021</td>
-                    <td>01/01/2022</td>
-                    <td>1200 sq. feet</td>
-                    <td>Single Family Home</td>
+                    <td>{{property.address}}</td>
+                    <td>{{property.leaseStart}}</td>
+                    <td>{{property.leaseEnd}}</td>
+                    <td>{{property.squareFootage}}</td>
+                    <td>{{property.propertyType}}</td>
                   </tr>
-                  <tr>
-                    <td>129 Routing is fun way</td>
-                    <td>02/22/2020</td>
-                    <td>02/22/2022</td>
-                    <td>1600 sq. feet</td>
-                    <td>Townhouse</td>
-                  </tr>
+                  
                 </tbody>
               </table>
               <br>
