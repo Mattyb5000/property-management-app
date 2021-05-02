@@ -41,7 +41,6 @@ const updateTenantFormHandler = async (event) => {
   }
   
 
-
  
 
 

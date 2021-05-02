@@ -1,14 +1,32 @@
-<div>
-              <form class="form-group" role="form">
-                <div class="form-group col-xs-4 col-md-4">
-                    <label for="selectproperty1">Select Property {{number}}</label>
-                    <select class="form-control" id="selectproperty1">
-                      <option>{{ Property 1 }}</option>
-                      <option>{{ Property 2}}</option>
-                      <option>{{ Property 3}}</option>
-                      <option>{{ Property 4}}</option>
-                      <option>{{Property 5}}</option>
-                    </select>
-                    <button class="btn btn-outline-secondary my-3" type="button">Select This Property</button>
-                    </div>
-                </div>
+{{#if properties}}
+<div class="container all-propertys-cont">
+    <br>
+    <br>
+    <br>
+    <h3>Current properties:</h3>
+    <br>
+    <br>
+    {{#each properties as |property|}}
+    <div class="row flex-row align-items-center justify-content-around">
+        <div class="col-10 property-list">
+            <table class="table .table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Property Address</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{property.address}} </td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-2">
+            <a class="btn btn-primary" href="/property/view/{{property.id}}" role="button">Select property</a>
+        </div>
+    </div>
+    {{/each}}
+</div>
+{{/if}}
