@@ -6,6 +6,7 @@ const routes = require('./controllers');
 const helpers = require('./utils/helpers');
 
 const sequelize = require('./config/connection');
+const { access } = require('fs');
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -25,6 +26,7 @@ const sess = {
 };
 
 app.use(session(sess));
+app.use(express.static('views/images')); //to access images using handlebars -ST
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
