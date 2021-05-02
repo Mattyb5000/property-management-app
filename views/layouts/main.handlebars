@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,14 @@
   <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
   <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <header>
 <nav class="navbar navbar-expand-md fixed-top top-nav light-header">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html"><img src="images/home-route-logo.png" alt="Home Route Logo" width="150" height="115"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         </button>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav m-auto text-sm-center text-md-center">
               <li class="nav-item">
@@ -38,17 +41,21 @@
   </nav>
     {{!-- </nav> --}}
 </header>
+
 <body>
+  
     <main>
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
+  
 <footer class="page-footer font-small black>
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2021 Copyright:
     <h3><HomeRoutes - Created by The Illustrious Team of Liz, Seth, Sopee, Matt and Farran</h3>
   </div>
     </footer>
+ 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="./public/js/logout.js"></script>
@@ -57,5 +64,6 @@
     </script> --}}
 </body>
 <footer>
+  
 </footer>
 </html>
