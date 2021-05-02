@@ -30,7 +30,7 @@ const { Tenant } = require('../../models');
 
 
 // route to update tenant
-router.put('/', (req, res) => {
+router.put('/:id', (req, res) => {
   Tenant.update(
     {
       phone_number: req.body.phone_number,
