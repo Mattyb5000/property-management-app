@@ -32,13 +32,18 @@
        <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
+        <span class="login-button">
         <a href="/homepage">profile</a> |
         <button class="no-button" id="logout">logout</button>
+        </span>
         {{else}}
+        <span class="login-button">
         <a href="/login">login</a>
+        </span>
         {{/if}}
       </nav>
     {{!-- </nav> --}}
+    
 </header>
 
 <body>
