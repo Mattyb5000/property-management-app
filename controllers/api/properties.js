@@ -32,7 +32,7 @@ const { Property, User, Tenant } = require('../../models');
 
 // route to create a new property
 
-router.post('/', /*withAuth,*/ async (req, res) => {
+router.post('/update', /*withAuth,*/ async (req, res) => {
   try {
     const newProperty = await Property.create({
       ...req.body,
@@ -42,7 +42,7 @@ router.post('/', /*withAuth,*/ async (req, res) => {
     res.status(200).json(newProperty);
   } catch (err) {
     res.status(400).json(err);
-    // res.render('add_property', { property });
+    res.render('add_property', { property });
   }
 });
 

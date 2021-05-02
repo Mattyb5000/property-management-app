@@ -4,9 +4,17 @@ const { Property, User } = require('../models');
 //property_dashboard route--displays all properties
 
 router.get('/', async (req, res) => {
-    const propertyData = await Property.findAll().catch((err) => { 
-        res.json(err);
-      });
+    const propertyData = await Property.findAll({
+      include: [
+        {
+          model: User,
+          attributes: [
+            'id'
+          ],
+        },
+      ],
+
+    });
         const properties = propertyData.map((properties) => properties.get({ plain: true }));
         console.log("YOURE ON THE RIGHT TRACK SOP!", properties);
         res.render('property_dashboard', { properties });
@@ -20,22 +28,26 @@ router.get('/', async (req, res) => {
           include: [
             {
               model: User,
-              attributes: [
-                'id'
-              ],
+              attributes: [ 'id' ],
             },
           ],
         });
     
         const property = propertyData.get({ plain: true });
         console.log ("WE REAAAAAAAAAAAAAAAADY!!!!!", property);
-        res.render('display_property', { property });
+        res.render('display_property',  {
+          property });
       } catch (err) {
         console.log(err);
        
         res.status(500).json(err);
       }
     });
+
+    // render add property page
+router.get('/add', (req, res) => {
+  res.render('add_property');
+});
       // router.get('/property', withAuth, async (req, res) => {
       //   try {
       //     // Find the logged in user based on the session ID
