@@ -41,7 +41,7 @@ router.get('/view/:id', async (req, res) => {
 
 
 // render update tenant page
-router.get('/update', (req, res) => {
+router.get('/update/:id', (req, res) => {
          res.render('update_tenant');
 });
 
