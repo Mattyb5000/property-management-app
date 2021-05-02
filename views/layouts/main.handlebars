@@ -16,7 +16,7 @@
         <a class="navbar-brand" href="index.html"><img src="images/home-route-logo.png" alt="Home Route Logo" width="150" height="115"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         </button>
-  
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav m-auto text-sm-center text-md-center">
               <li class="nav-item">
@@ -29,7 +29,16 @@
                 <a class="nav-link" href="#leases_1">Leases</a>
               </li>
       </div>
-    </nav>
+       <nav>
+        <!-- Conditionally render login or logout links -->
+        {{#if logged_in}}
+        <a href="/homepage">profile</a> |
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </nav>
+    {{!-- </nav> --}}
 </header>
 
 <body>
