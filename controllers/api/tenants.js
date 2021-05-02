@@ -58,7 +58,6 @@ router.delete('/:id', async (req, res) => {
       const tenantData = await Tenant.destroy({
         where: {
           id: req.params.id,
-          user_id: req.session.user_id,
         },
       });
   
