@@ -1,3 +1,4 @@
+
 <br>
     <br>
     <br>
@@ -29,18 +30,19 @@
                     </div>
                     <br>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Add Property</button>
+                        <button type="submit" id="new-property-form" class="btn btn-primary">Add Property</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
     </div>
-</body>
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/public/js/add_property.js"></script>
-  {{/if}}
-</body>
+    
 
-</html>
+  <!-- Render script for logged in users only -->
+  {{!-- {{#if logged_in}}
+  
+  {{/if}} --}}
+
+
+<script src="../public/js/add_property.js"></script>
