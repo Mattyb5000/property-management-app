@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Property, User } = require('../models');
 
-// GET all properties for homepage
+// GET all properties for property_dashboard
 router.get('/', async (req, res) => {
   try {
     const propertyData = await Property.findAll({
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
       property.get({ plain: true })
     );
     // Send over the 'loggedIn' session variable to the 'homepage' template
-    res.render('homepage', {
+    res.render('property_dashboard', {
       properties,
       loggedIn: req.session.loggedIn,
     });
@@ -28,28 +28,44 @@ router.get('/', async (req, res) => {
 });
 
 // GET one property
-router.get('/property/:id', async (req, res) => {
-  try {
-    const propertyData = await property.findByPk(req.params.id, {
-      include: [
-        {
-          model: Property,
-          attributes: [
-            'id',
-            'address',
-            'leaseStart',
-            'leaseEnd',
-            'squareFootage',
-            'propertyType',
-            'landlord_id'
-          ],
-        },
-      ],
-    });
 
+router.get('/property/:id', async (req, res) => {
+    try {
+      const propertyData = await Property.findByPk(req.params.id, {
+            attributes: { include: [
+              'id',
+              'address',
+              'leaseStart',
+              'leaseEnd',
+              'squareFootage',
+              'propertyType',
+              'landlord_id'
+            ],
+          },
+      
+      });
+// router.get('/property/:id', async (req, res) => {
+//   try {
+//     const propertyData = await Property.findByPk(req.params.id, {
+//       include: [
+//         {
+//           // model: Property,
+//           attributes: [
+//             'id',
+//             'address',
+//             'leaseStart',
+//             'leaseEnd',
+//             'squareFootage',
+//             'propertyType',
+//             'landlord_id'
+//           ],
+//         },
+//       ],
+//     });
+      console.log(propertyData);
     const property = propertyData.get({ plain: true });
     // Send over the 'loggedIn' session variable to the 'property' template
-    res.render('property', { property, loggedIn: req.session.loggedIn });
+    res.render('display_property', { property, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
