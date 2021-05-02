@@ -1,39 +1,50 @@
-<div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-6">
-    <h2>Signup</h2>
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
-  </div>
+<br>
+    <br>
+    <br>
+
+
+<!-- {{#if tenants.length}} -->
+<div class="container view-tenants-cont">
+    <br>
+    <br>
+    <br>
+    <div class="row d-flex justify-content-center">
+        
+        <div class="col-12 col-md-12 property-description">
+            
+            <table data-toggle="table">
+                <thead>
+                  <tr>
+                    <th>Property Address:</th>
+                    <th>Lease Start:</th>
+                    <th>Lease End:</th>
+                    <th>Square Footage:</th>
+                    <th>Property Type:</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>555 Five St</td>
+                    <td>01/01/2021</td>
+                    <td>01/01/2022</td>
+                    <td>1200 sq. feet</td>
+                    <td>Single Family Home</td>
+                  </tr>
+                  <tr>
+                    <td>129 Routing is fun way</td>
+                    <td>02/22/2020</td>
+                    <td>02/22/2022</td>
+                    <td>1600 sq. feet</td>
+                    <td>Townhouse</td>
+                  </tr>
+                </tbody>
+              </table>
+              <br>
+              
+              <a class="btn btn-primary" href="/index.html" role="button">View Tenants</a>
+        </div>
+    </div>
 </div>
-<script src="./js/login.js"></script>
+
+
+
