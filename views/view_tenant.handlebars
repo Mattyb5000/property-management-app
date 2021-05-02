@@ -32,7 +32,8 @@
               <td>{{tenant.emer_contact_name}}</td>
               <td>{{tenant.emer_contact_phone}}</td>
             </tr>
-            <a class="btn btn-primary" href="/tenant/update" role="button">Update Tenant</a>
+            <a class="btn btn-primary" href="/tenant/update/{{tenant.id}}" role="button">Update Tenant</a>
+            <a class="btn btn-danger" id="delete" role="button">Delete Tenant</a>
           </tbody>
         </table>
         {{/each}}
@@ -42,3 +43,4 @@
   </div>
   {{/if}}
   
+  <script src="/js/delete_tenant.js"></script>
