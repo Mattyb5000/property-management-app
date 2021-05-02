@@ -1,4 +1,5 @@
 //function event handler to handle the form contents
+const updateProperty = document.querySelector('#updateProperty')
 
 async function newFormHandler(event) {
     event.preventDefault();
