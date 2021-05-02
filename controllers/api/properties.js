@@ -31,7 +31,7 @@ const withAuth = require('../../utils/auth');
 
 //route to create a new property
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/',  async (req, res) => {
   try {
     const newProperty = await Property.create({
       ...req.body,

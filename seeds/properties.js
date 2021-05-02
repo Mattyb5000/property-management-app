@@ -1,4 +1,4 @@
-const { properties } = require('../models');
+const { Property } = require('../models');
 
 const propertyData = [
   {
@@ -43,6 +43,6 @@ const propertyData = [
   },
 ];
 
+const seedProperties = () => Property.bulkCreate(propertyData);
 
-
-module.exports = propertyData;
+module.exports = seedProperties;
