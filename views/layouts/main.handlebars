@@ -20,24 +20,25 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav m-auto text-sm-center text-md-center">
               <li class="nav-item">
-                <a class="nav-link" href="#properties_1">Properties</a>
+                <a class="nav-link" href="./property">Properties</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#tenants_1">Tenants</a>
+                <a class="nav-link" href="./tenant">Tenants</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#leases_1">Leases</a>
               </li>
       </div>
        <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/homepage">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
+    <a href="/">Home</a>
+    <!-- If the user is logged in, show a logout button -->
+    {{#if loggedIn}}
+    <button id="logout" class="btn-no-style">Logout</button>
+    {{else}}
+    <!-- Otherwise, show a link to login -->
+    <a href="/login">Login</a>
+    {{/if}}
+  </nav>
     {{!-- </nav> --}}
 </header>
 
@@ -59,7 +60,7 @@
  
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  <script src="./public/js/logout.js"></script>
   {{/if}}
 {{!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8RpH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
     </script> --}}
