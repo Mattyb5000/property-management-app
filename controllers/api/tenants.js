@@ -30,7 +30,33 @@ const { Tenant } = require('../../models');
 
 
 // route to update tenant
+// router.put('/:id', (req, res) => {
+//   Tenant.update(
+//     {
+//       phone_number: req.body.phone_number,
+//       email: req.body.email,
+//       first_name: req.body.first_name,
+//       last_name: req.body.last_name,
+//       emer_contact_name: req.body.emer_contact_name,
+//       emer_contact_phone: req.body.emer_contact_phone,
+//     },
+//     {
+
+//       where: {
+//         id: req.params.id,
+//       },
+//     }
+//   )
+//     .then((updatedTenant) => {
+//       // Sends the updated book as a json response
+//       res.json(updatedTenant);
+//     })
+//     .catch((err) => res.json(err));
+// });
+
+// route to update tenant
 router.put('/:id', (req, res) => {
+  console.log(req.body, req.params.id)
   Tenant.update(
     {
       phone_number: req.body.phone_number,
@@ -51,7 +77,10 @@ router.put('/:id', (req, res) => {
       // Sends the updated book as a json response
       res.json(updatedTenant);
     })
-    .catch((err) => res.json(err));
+    .catch((err) => {
+      console.log(err)
+      res.json(err)
+    });
 });
 
 
