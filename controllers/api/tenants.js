@@ -1,36 +1,11 @@
 const router = require('express').Router();
 const { Tenant } = require('../../models');
 
-//route to get all tenants
-// router.get('/', async (req, res) => {
-//     const tenantData = await Tenant.findAll().catch((err) => { 
-//         res.json(err);
-//       });
-//         const tenants = tenantData.map((tenant) => tenant.get({ plain: true }));
-//         res.render('all', { tenants });
-//       });
-
-//       //route to get one tenant
-//       router.get('/:id', async (req, res) => {
-//         try{ 
-//             const tenantData = await tenant.findByPk(req.params.id);
-//             if(!tenantData) {
-//                 res.status(404).json({message: 'No tenant with this id!'});
-//                 return;
-//             }
-//             const tenant = tenantData.get({ plain: true });
-//             res.render('tenants', tenant);
-//           } catch (err) {
-//               res.status(500).json(err);
-//           };     
-//       });
-    
-      // const router = require('express').Router();
-// const { tenant } = require('../../models');
 
 
 // route to update tenant
 router.put('/:id', (req, res) => {
+  console.log(req.body, req.params.id)
   Tenant.update(
     {
       phone_number: req.body.phone_number,
@@ -51,7 +26,10 @@ router.put('/:id', (req, res) => {
       // Sends the updated book as a json response
       res.json(updatedTenant);
     })
-    .catch((err) => res.json(err));
+    .catch((err) => {
+      console.log(err)
+      res.json(err)
+    });
 });
 
 

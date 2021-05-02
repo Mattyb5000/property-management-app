@@ -38,6 +38,8 @@ Adding and editing tenants is a similar process to adding and editing properties
 
 
 ---
+## Logo
+![Alt Text](https://github.com/Mattyb5000/property-management-app/blob/9d7a3c80a73280884ed9c173518c90104161fbf5/public/images/logo.gif)
 
 <a name='Questions'></a>
 ## Questions

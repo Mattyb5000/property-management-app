@@ -13,7 +13,7 @@
 <header>
 <nav class="navbar navbar-expand-md fixed-top top-nav light-header">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="images/home-route-logo.png" alt="Home Route Logo" width="150" height="115"></a>
+        <a class="navbar-brand" href="/"><img src="images/home-route-logo.png" alt="Home Route Logo" width="150" height="115"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         </button>
 
@@ -30,13 +30,12 @@
               </li>
       </div>
        <nav>
-    <a href="/">Home</a>
     <!-- If the user is logged in, show a logout button -->
     {{#if loggedIn}}
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <!-- Otherwise, show a link to login -->
-    <a href="/login">Login</a>
+    <span class="btn btn-success login-button"><a href="/login">Login</a></span>
     {{/if}}
   </nav>
     {{!-- </nav> --}}
