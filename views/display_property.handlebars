@@ -1,47 +1,39 @@
-<br>
-<br>
-<br>
-{{#if properties}}
-<div class="container view-properties-cont">
-  <br>
-  <br>
-  <br>
-  <div class="row d-flex justify-content-center">
-    <div class="col-10 text-center">
-      <h3>Current Property:</h3>
-      <br>
-      <br>
-    </div>
-
-    <div class="row flex-row ">
-      <div class="col-12 col-md-12 property-list">
- {{#each properties as |property|}}
-        <table class="table .table-bordered ">
-          <thead>
-            <tr>
-              <th scope="col">Property Address</th>
-              <th scope="col">Property ID</th>
-              <th scope="col">Current Tenants</th>
-              <th scope="col">Lease Term</th>
-              <th scope="col">Square Footage</th>
-              <th scope="col">Property Type</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-               <td>{{property.Address}}</td>
-              <td>{{property.id}}</td>
-               <td>{{tenant.first_name}} {{tenant.last_name}}</td>
-              <td>{{property.leaseStart}}{{property.leaseEnd}}</td>
-              <td>{{property.squareFootage}}</td>
-              <td>{{property.type}}</td>
-            </tr>
-            <button id="updatePage">Update Property</button>
-          </tbody>
-        </table>
-        {{/each}}
+<div class="row">
+  <div class="col-md-6">
+    <h2>Login</h2>
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">email:</label>
+        <input class="form-input" type="text" id="email-login" />
       </div>
-    </div>
+      <div class="form-group">
+        <label for="password-login">password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">login</button>
+      </div>
+    </form>
   </div>
+  <div class="col-md-6">
+    <h2>Signup</h2>
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="name-signup">name:</label>
+        <input class="form-input" type="text" id="name-signup" />
+      </div>
+      <div class="form-group">
+        <label for="email-signup">email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div>
+      <div class="form-group">
+        <label for="password-signup">password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">signup</button>
+      </div>
+    </form>
   </div>
-  {{/if}}
+</div>
+<script src="./js/login.js"></script>
