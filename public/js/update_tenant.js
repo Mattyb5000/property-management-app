@@ -40,7 +40,6 @@ const updateTenantFormHandler = async (event) => {
   }
   
 
-
  
 
 
