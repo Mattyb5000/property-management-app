@@ -30,13 +30,12 @@
               </li>
       </div>
        <nav>
-    <a href="/">Home</a>
     <!-- If the user is logged in, show a logout button -->
     {{#if loggedIn}}
     <button id="logout" class="btn-no-style">Logout</button>
     {{else}}
     <!-- Otherwise, show a link to login -->
-    <span class="login-button"><a href="/login">Login</a></span>
+    <span class="btn btn-success login-button"><a href="/login">Login</a></span>
     {{/if}}
   </nav>
     {{!-- </nav> --}}
