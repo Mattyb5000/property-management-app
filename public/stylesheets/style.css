@@ -245,6 +245,7 @@ input:focus {
 .login {
 	align-content: center;
 	height: 60vh;
+	width: 500vh;
   background: rgb(1, 108, 247);
   background: linear-gradient(
     77deg,
