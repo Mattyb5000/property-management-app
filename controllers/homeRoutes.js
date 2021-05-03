@@ -17,6 +17,7 @@ router.get('/', async (req, res) => {
     const properties = propertyData.map((property) =>
       property.get({ plain: true })
     );
+    
     // Send over the 'loggedIn' session variable to the 'homepage' template
     res.render('homepage', {
       properties,
