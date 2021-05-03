@@ -66,11 +66,10 @@
   width: 100vh;
 }
 
-.container {
-  position: absolute;
-  height: 100%;
-  align-content: center;
-}
+/* .container {
+  
+  
+} */
 
 .card {
   height: 500px;
@@ -244,8 +243,8 @@ input:focus {
 }
 .login {
 	align-content: center;
-	height: 60vh;
-	width: 500vh;
+	/* height: 60vh;
+	width: 500vh; */
   background: rgb(1, 108, 247);
   background: linear-gradient(
     77deg,
@@ -276,3 +275,10 @@ button {
   border-radius: 80px;
   
 }
+
+/* .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+} */
