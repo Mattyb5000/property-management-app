@@ -6,7 +6,7 @@ const { Tenant, Property, User  } = require('../models');
 
 
 const seedAll = async () => {
-  await sequelize.sync({ force: false });
+  await sequelize.sync({ force: true });
 
   
   await User.bulkCreate(seedUsers, {

@@ -45,4 +45,4 @@ const propertyData = [
 
 const seedProperties = () => Property.bulkCreate(propertyData);
 
-module.exports = seedProperties;
+module.exports = propertyData;
