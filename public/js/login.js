@@ -10,7 +10,8 @@ const loginFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
-      document.location.replace('/');
+      // res.render('property_dashboard', )
+      document.location.replace('/property');
       console.log("YOU ARE ALMOST THERE!!!!");
     } else {
       alert('Failed to log in.');
@@ -30,7 +31,7 @@ const signupFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/property');
       console.log("YOU ARE ALMOST FINISHED!!!!");
     } else {
       alert('Please try to login again.');

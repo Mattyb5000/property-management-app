@@ -5,21 +5,49 @@ const withAuth = require('../utils/auth');
 //property_dashboard route--displays all properties
 //get all properties
 router.get('/', async (req, res) => {
-  const propertyData = await Property.findAll({
-    include: [
-      {
-        model: User,
-        attributes: ['id'],
-      },
-    ],
-  });
-  const properties = propertyData.map((properties) =>
-    properties.get({ plain: true })
+  try {
+    console.log('entered property router');
+    console.log(req.session.user_id);
+    
+    // const userId = await User.findByPk(req.session.user_id, {
+    //   include: [{model: Property}],
+    // });
+    const propertyData = await Property.findAll({where: {
+    userId: req.session.user_id
+    }, 
+        include: [{model: User, attributes: ['id'],
+      }],
+    }
   );
+  const properties = propertyData.map((properties) =>
+    properties.get({ plain: true }));
+
+  console.log(properties);
   res.render('property_dashboard', { properties });
-});
+    } catch (err) {
+      console.log(err);
+    }
+  });
 
 
+// router.get('/profile', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: Project }],
+//     });
+
+//     const user = userData.get({ plain: true });
+
+//     res.render('profile', {
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 // render add property page
 router.get('/update', (req, res) => {
   res.render('add_property');
