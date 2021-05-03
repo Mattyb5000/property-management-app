@@ -45,4 +45,8 @@ router.get('/update/:id', (req, res) => {
          res.render('update_tenant');
 });
 
+
+router.get('/create', (req, res) => {
+  res.render('add_tenants');
+});
 module.exports = router;
