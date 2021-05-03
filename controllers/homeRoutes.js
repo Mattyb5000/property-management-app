@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     // Send over the 'loggedIn' session variable to the 'homepage' template
     res.render('homepage', {
       properties,
-      // loggedIn: req.session.loggedIn,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -85,14 +85,14 @@ router.get('/', async (req, res) => {
 
 
 // Login route
-// router.get('/login', (req, res) => {
-//   // If the user is already logged in, redirect to the homepage
-//   if (req.session.loggedIn) {
-//     res.redirect('/');
-//     return;
-//   }
-//   // Otherwise, render the 'login' template
-//   res.render('login');
-// });
+router.get('/login', (req, res) => {
+  // If the user is already logged in, redirect to the homepage
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
+  // Otherwise, render the 'login' template
+  res.render('login');
+});
 
 module.exports = router;
