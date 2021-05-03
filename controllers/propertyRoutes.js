@@ -1,8 +1,8 @@
 const router = require('express').Router();
 const { Property, User } = require('../models');
-// const withAuth = require('../utils/auth');
-//property_dashboard route--displays all properties
+const withAuth = require('../utils/auth');
 
+//property_dashboard route--displays all properties
 //get all properties
 router.get('/', async (req, res) => {
   const propertyData = await Property.findAll({
@@ -39,7 +39,6 @@ router.get('/:id', async (req, res) => {
     });
 
     const property = propertyData.get({ plain: true });
-    console.log('WE REAAAAAAAAAAAAAAAADY!!!!!', property);
     res.render('display_property', {
       property,
     });
@@ -50,23 +49,23 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-// router.get('/property', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Property }],
-//     });
+router.get('/property', withAuth, async (req, res) => {
+  try {
+    // Find the logged in user based on the session ID
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Property }],
+    });
 
-//     const user = userData.get({ plain: true });
+    const user = userData.get({ plain: true });
 
-//     res.render('property', {
-//       ...user,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    res.render('property', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
