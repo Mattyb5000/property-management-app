@@ -26,7 +26,7 @@ Property.init(
       allowNull: false,
     },
     squareFootage: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     propertyType: {

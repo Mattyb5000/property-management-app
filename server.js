@@ -21,12 +21,13 @@ const sess = {
   })
 };
 app.use(session(sess));
+app.use(express.static('views/images')); //to access images using handlebars -ST
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(routes); //triggering the routes with Express-ST
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log('Now listening'+PORT));
 });

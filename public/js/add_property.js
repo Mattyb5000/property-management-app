@@ -8,8 +8,8 @@ const newFormHandler = async (event) => {
     const address = document.querySelector('#property_address').value;
     const leaseStart = document.querySelector('#lease_start').value;
     const leaseEnd = document.querySelector('#lease_end').value;
-    const squareFootage = document.querySelector('#square_footage');
-    const propertyType = document.querySelector('#property_type');
+    const squareFootage = document.querySelector('#square_footage').value;
+    const propertyType = document.querySelector('#property_type').value;
   
     //where am I fetching from? just the api route to get the data
     const response = await fetch(`/api/property`, {
