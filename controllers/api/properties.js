@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Property } = require('../../models');
-const withAuth = require('../../utils/auth');
+// const withAuth = require('../../utils/auth');
 
-//route to get all properties
+// route to get all properties
+
 // router.get('/', async (req, res) => {
 //     const propertyData = await Property.findAll().catch((err) => { 
 //         res.json(err);
@@ -26,24 +27,40 @@ const withAuth = require('../../utils/auth');
 //           };     
 //       });
     
-      // const router = require('express').Router();
+//       const router = require('express').Router();
 // const { Property } = require('../../models');
 
-//route to create a new property
+// route to create a new property
 
-router.post('/', withAuth, async (req, res) => {
-  try {
-    const newProperty = await Property.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
-
-    res.status(200).json(newProperty);
-  } catch (err) {
-    res.status(400).json(err);
-    res.render('add_property', { property });
-  }
+router.post('/', /*withAuth,*/ (req, res) => {
+  Property.create(
+  {
+    address: req.body.address,
+    leaseStart: req.body.leaseStart,
+    leaseEnd: req.body.leaseEnd,
+    squareFootage: req.body.squareFootage,
+    propertyType: req.body.propertyType,
+  },
+)
+  .then((newProperty) => {
+    // Sends the updated book as a json response
+    res.json(newProperty);
+    // res.render('add_property', { property });
+  })
+  .catch((err) => res.json(err));
 });
+  
+  
+//   ({req.body,
+//       user_id: req.session.user_id,
+//     });
+
+//     res.status(200).json(newProperty);
+//   } catch (err) {
+//     res.status(400).json(err);
+//     res.render('add_property', { property });
+//   }
+// });
 
 //route to delete a property by id
 router.delete('/:id', async (req, res) => {
