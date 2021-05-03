@@ -32,7 +32,8 @@ const { Property } = require('../../models');
 
 // route to create a new property
 
-router.post('/', /*withAuth,*/ (req, res) => {
+router.post('/',  (req, res) => {
+  console.log(req.body);
   Property.create(
   {
     address: req.body.address,
@@ -47,7 +48,11 @@ router.post('/', /*withAuth,*/ (req, res) => {
     res.json(newProperty);
     // res.render('add_property', { property });
   })
-  .catch((err) => res.json(err));
+  .catch((err) => {
+    console.log(err);
+    res.json(err)
+  });
+  
 });
   
   
