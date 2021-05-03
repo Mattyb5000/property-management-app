@@ -10,7 +10,6 @@ const loginFormHandler = async (event) => {
     });
     if (response.ok) {
       document.location.replace('/');
-      console.log("YOU ARE ALMOST THERE!!!!");
     } else {
       alert('Failed to log in.');
     }
@@ -31,7 +30,7 @@ const signupFormHandler = async (event) => {
       document.location.replace('/');
       console.log("YOU ARE ALMOST FINISHED!!!!");
     } else {
-      alert('Nope! Try Again Poopiehead!');
+      alert('Login failed.  Please try again.');
     }
   }
 };
