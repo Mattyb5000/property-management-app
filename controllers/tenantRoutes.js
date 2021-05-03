@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 
 
 // render view single tenant page
-router.get('/view/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     const tenantData = await Tenant.findAll({
       where: {
           id: req.params.id

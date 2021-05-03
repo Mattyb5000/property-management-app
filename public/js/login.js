@@ -1,5 +1,6 @@
 const loginFormHandler = async (event) => {
   event.preventDefault();
+  console.log("were in login js");
   const email = document.querySelector('#email-login').value.trim();
   const password = document.querySelector('#password-login').value.trim();
   if (email && password) {
@@ -18,6 +19,7 @@ const loginFormHandler = async (event) => {
 };
 const signupFormHandler = async (event) => {
   event.preventDefault();
+  console.log('were in signup');
   const username = document.querySelector('#username-signup').value.trim();
   const email = document.querySelector('#email-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
@@ -31,7 +33,7 @@ const signupFormHandler = async (event) => {
       document.location.replace('/');
       console.log("YOU ARE ALMOST FINISHED!!!!");
     } else {
-      alert('Nope! Try Again Poopiehead!');
+      alert('Please try to login again.');
     }
   }
 };
