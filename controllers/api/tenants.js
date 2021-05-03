@@ -39,17 +39,25 @@ router.put('/:id', (req, res) => {
 
 
 //route to create a new tenant
-router.post('/', async (req, res) => {
-  try {
-    const newTenant = await tenant.create({
-      ...req.body,
-      user_id: req.session.user_id,
+router.post('/',  (req, res) => {
+  Tenant.create(
+    {
+      phone_number: req.body.phone_number,
+      email: req.body.email,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      emer_contact_name: req.body.emer_contact_name,
+      emer_contact_phone: req.body.emer_contact_phone,
+    },
+  )
+    .then((newTenant) => {
+      // Sends the updated book as a json response
+      res.json(newTenant);
+    })
+    .catch((err) => {
+      console.log(err)
+      res.json(err)
     });
-
-    res.status(200).json(newTenant);
-  } catch (err) {
-    res.status(400).json(err);
-  }
 });
 
 //route to delete a tenant by id
