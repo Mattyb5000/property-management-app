@@ -3,7 +3,7 @@ const { Tenant, Property } = require('../models');
 
 
 // render all tenants
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
     const tenantData = await Tenant.findAll({
         include: [
           {
@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
 
 
 // render view single tenant page
-router.get('/:id', async (req, res) => {
+router.get('/:id', withAuth, async (req, res) => {
     const tenantData = await Tenant.findAll({
       where: {
           id: req.params.id

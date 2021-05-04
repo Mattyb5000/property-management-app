@@ -34,12 +34,12 @@
             </li>
         </div>
         <!-- If the user is logged in, show a logout button -->
-        {{!-- {{#if loggedIn}} --}}
-        <span class="btn btn-success logout-button" id="logout"> <a href="/logout.js"class="btn-no-style">Logout</a></span>
-        {{!-- {{else}} --}}
+        {{#if loggedIn}}
+        <span class="btn btn-success logout-button" id="logout"> <a href="/"class="btn-no-style">Logout</a></span>
+        {{else}}
         <!-- Otherwise, show a link to login -->
         <span class="btn btn-success login-button"><a href="/login">Login</a></span>
-        {{!-- {{/if}} --}}
+        {{/if}}
     </nav>
   </header>
 
