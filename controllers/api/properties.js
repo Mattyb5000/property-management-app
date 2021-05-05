@@ -32,40 +32,23 @@ const { Property } = require('../../models');
 
 // route to create a new property
 
-router.post('/',  (req, res) => {
-  console.log(req.body);
-  Property.create(
-  {
-    address: req.body.address,
-    leaseStart: req.body.leaseStart,
-    leaseEnd: req.body.leaseEnd,
-    squareFootage: req.body.squareFootage,
-    propertyType: req.body.propertyType,
-  },
-)
-  .then((newProperty) => {
-    // Sends the updated book as a json response
-    res.json(newProperty);
-    // res.render('add_property', { property });
-  })
-  .catch((err) => {
-    console.log(err);
-    res.json(err)
+router.post('/', async (req, res) => {
+  try {
+  // console.log(req.body);
+  const newProperty = await Property.create({
+    ...req.body,
+    landlord_id: req.session.user_id,
   });
   
+    // Sends the updated book as a json response
+    res.status(200).json(newProperty);
+    // res.render('add_property', { property });
+  } catch(err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
 });
   
-  
-//   ({req.body,
-//       user_id: req.session.user_id,
-//     });
-
-//     res.status(200).json(newProperty);
-//   } catch (err) {
-//     res.status(400).json(err);
-//     res.render('add_property', { property });
-//   }
-// });
 
 //route to delete a property by id
 router.delete('/:id', async (req, res) => {
