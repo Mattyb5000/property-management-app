@@ -2,39 +2,10 @@ const router = require('express').Router();
 const { Property } = require('../../models');
 // const withAuth = require('../../utils/auth');
 
-// route to get all properties
-
-// router.get('/', async (req, res) => {
-//     const propertyData = await Property.findAll().catch((err) => { 
-//         res.json(err);
-//       });
-//         const properties = propertyData.map((property) => property.get({ plain: true }));
-//         res.render('all', { properties });
-//       });
-
-//       //route to get one property
-//       router.get('/:id', async (req, res) => {
-//         try{ 
-//             const propertyData = await Property.findByPk(req.params.id);
-//             if(!propertyData) {
-//                 res.status(404).json({message: 'No Property with this id!'});
-//                 return;
-//             }
-//             const property = propertyData.get({ plain: true });
-//             res.render('properties', property);
-//           } catch (err) {
-//               res.status(500).json(err);
-//           };     
-//       });
-    
-//       const router = require('express').Router();
-// const { Property } = require('../../models');
-
 // route to create a new property
 
 router.post('/', async (req, res) => {
   try {
-  // console.log(req.body);
   const newProperty = await Property.create({
     ...req.body,
     landlord_id: req.session.user_id,
@@ -42,7 +13,6 @@ router.post('/', async (req, res) => {
   
     // Sends the updated book as a json response
     res.status(200).json(newProperty);
-    // res.render('add_property', { property });
   } catch(err) {
     console.log(err);
     res.status(400).json(err);

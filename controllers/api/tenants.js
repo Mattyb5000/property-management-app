@@ -2,10 +2,26 @@ const router = require('express').Router();
 const { Tenant } = require('../../models');
 
 
+router.post('/', async (req, res) => {
+  console.log("you are in the post tenant api route");
+  try {
+  const newTenant = await Tenant.create({
+    ...req.body,
+    landlord_id: req.session.user_id,
+  });
+  
+    // Sends the updated book as a json response
+    res.status(200).json(newTenant);
+    console.log("new tenant added");
+  } catch(err) {
+    console.log(err);
+    res.status(400).json(err);
+  }
+});
 
 // route to update tenant
 router.put('/:id', (req, res) => {
-  console.log(req.body, req.params.id)
+  console.log(req.body, req.params.id);
   Tenant.update(
     {
       phone_number: req.body.phone_number,
