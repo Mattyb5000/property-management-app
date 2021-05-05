@@ -14,6 +14,7 @@ router.put('/:id', (req, res) => {
       last_name: req.body.last_name,
       emer_contact_name: req.body.emer_contact_name,
       emer_contact_phone: req.body.emer_contact_phone,
+      landlord_id: req.body.user_id,
     },
     {
 
@@ -51,6 +52,7 @@ router.post('/',  (req, res) => {
       last_name: req.body.last_name,
       emer_contact_name: req.body.emer_contact_name,
       emer_contact_phone: req.body.emer_contact_phone,
+      landlord_id: req.body.user_id,
     },
   )
     .then((newTenant) => {
