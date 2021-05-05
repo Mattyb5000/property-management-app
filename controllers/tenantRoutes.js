@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Tenant, Property } = require('../models');
+const withAuth = require('../utils/auth');
+
 
 
 // render all tenants

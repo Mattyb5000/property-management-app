@@ -1,11 +1,13 @@
 const router = require('express').Router();
 const { Property, User } = require('../models');
+const withAuth = require('../utils/auth');
+
 
 
 
 
 // GET all properties for property dashboard
-router.get('/', withAuth, async (req, res) => {
+router.get('/',  async (req, res) => {
   console.log('you are in homepage route');
   res.render('homepage');
   // try {
@@ -37,7 +39,9 @@ router.get('/', withAuth, async (req, res) => {
 // Login route
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect to the homepage
+  
   if (req.session.loggedIn) {
+    console.log("logged in");
     res.redirect('/property');
     return;
   }

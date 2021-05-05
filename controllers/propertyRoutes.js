@@ -1,19 +1,18 @@
 const router = require('express').Router();
 const { Property, User } = require('../models');
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
 
 //property_dashboard route--displays all properties
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/',  async (req, res) => {
   try {
-    console.log('entered property router');
     
-    const userData = await User.findByPk(req.session.user_id);
+    // const userData = await User.findByPk(req.session.user_id);
 
-    console.log(userData);
+    // console.log(userData);
     const propertyData = await Property.findAll({
       where: {
-        landlord_id: userData
+        landlord_id: req.session.user_id
       }
     });
      
@@ -38,13 +37,15 @@ router.get('/', withAuth, async (req, res) => {
   });
   
 // render add property page
-router.get('/update', withAuth, (req, res) => {
+// router.get('/update', withAuth, (req, res) => {
+  router.get('/update',  (req, res) => {
   res.render('add_property');
 });
 
 
 // route to view a single property on display_property
-router.get('/:id', withAuth, async (req, res) => {
+// router.get('/:id', withAuth, async (req, res) => {
+  router.get('/:id',  async (req, res) => {
   try {
     const propertyData = await Property.findByPk(req.params.id, {
       include: [
