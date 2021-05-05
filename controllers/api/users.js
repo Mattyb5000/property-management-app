@@ -4,6 +4,8 @@ const { User } = require('../../models');
 // CREATE new user
 router.post('/', async (req, res) => {
   console.log(req.body);
+  console.log("you're in api user / to create a post");
+
   try {
     const userData = await User.create({
       username: req.body.username,
@@ -13,27 +15,28 @@ router.post('/', async (req, res) => {
 
 
     req.session.save(() => {
+      
+      // req.session.user_id = userData.id;
+      req.session.user_id = userData.id;
       req.session.loggedIn = true;
-      //creating the loggedin variable
+
       res.status(200).json(userData);
-      console.log("YOU GET TO SLEEP SOON!");
+      console.log("You made it through the sign-in user route");
     });
     
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
-  
+    res.status(400).json(err);
   }
 });
 
 // Login
 router.post('/login', async (req, res) => {
   try {
+    console.log("you made it to the /login user route.");
     const userData = await User.findOne({
       where: {
-        email: req.body.email,
-      },
-    });
+        email: req.body.email } });
 
     if (!userData) {
       res
@@ -53,21 +56,33 @@ router.post('/login', async (req, res) => {
 
     // Once the user successfully logs in, set up the sessions variable 'loggedIn'
     req.session.save(() => {
+      console.log('Im in req.session.save');
+      req.session.user_id = userData.user_id;
       req.session.loggedIn = true;
+      debugger;
+      console.log(userData.user_id);
+      console.log(req.session.user_id);
 
-      res
-        .status(200)
-        .json({ user: userData, message: 'You are now logged in!' });
+
+      res.json({ user: userData, message: 'You are now logged in!' });
+      // res
+      //   .status(200)
+      //   .json({ user: userData, message: 'You are now logged in!' });
     });
+
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(400).json(err);
   }
 });
+
+
+
 
 // Logout
 router.post('/logout', (req, res) => {
   // When the user logs out, destroy the session
+  console.log('You made it to the logout function');
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -76,5 +91,5 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
-
+// req.session.user_id = userData.id; 
 module.exports = router;

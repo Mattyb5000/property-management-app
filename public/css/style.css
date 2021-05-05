@@ -275,6 +275,15 @@ button {
   border-radius: 80px;
   
 }
+.logout-button{
+	font-size: 24px;
+  font-family: 'Montserrat', sans-serif;
+  color: #016cf7;
+  background-color: #fc9001;
+  border-color: #016cf7;
+  border-radius: 80px;
+  
+}
 
 /* .footer {
   position: fixed;

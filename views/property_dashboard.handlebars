@@ -1,6 +1,6 @@
 
- {{!-- {{#if loggedIn}} --}}
-{{#if properties}}
+ {{#if loggedIn}}
+{{!-- {{#if properties}} --}}
 <div class="container all-properties-cont">
     <br>
     <br>
@@ -28,13 +28,19 @@
             <a class="btn btn-primary" href="/property/{{property.id}}" role="button">Select property</a>
         </div>
     </div>
+    <br>
+<br>
+
     {{/each}}
 </div>
-{{/if}}
+<a class="btn btn-primary" href="/property/update" role="button">Add a Property</a>
+
+{{!-- {{#else}}
 <br>
 <br>
 <a class="btn btn-primary" href="/property/update" role="button">Add a Property</a>
-
-{{!-- {{else}}
-<a href="/login">You must login to view Properties</a>
 {{/if}} --}}
+
+{{else}}
+<a href="/login">You must login to view Properties</a>
+{{/if}}

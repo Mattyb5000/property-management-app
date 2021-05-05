@@ -13,9 +13,9 @@
             <table class="table .table-bordered">
                 <thead>
                     <tr>
-                        <th scope="col">Tenant Name</th>
-                        <th scope="col">Property Address</th>
-                        <th scope="col">Lease End</th>
+                        <th scope="col-3">Tenant Name</th>
+                        <th scope="col-3">Property Address</th>
+                        <th scope="col-3">Lease End</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,7 +29,7 @@
             </table>
         </div>
         <div class="col-2">
-            <a class="btn btn-primary" href="/tenant/view/{{tenant.id}}" role="button">Select Tenant</a>
+            <a class="btn btn-primary" href="/tenant/{{tenant.id}}" role="button">Select Tenant</a>
         </div>
     </div>
     {{/each}}

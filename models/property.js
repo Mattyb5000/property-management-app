@@ -7,7 +7,7 @@ class Property extends Model {}
 //initalizing using sequalize
 Property.init(
   {
-    id: {
+      id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -37,7 +37,7 @@ Property.init(
         type: DataTypes.INTEGER,
         references: {
             model: "user",
-            key: "id",
+            key: "user_id",
         }
     }
   },

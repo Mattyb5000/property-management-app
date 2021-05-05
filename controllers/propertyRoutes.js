@@ -1,39 +1,47 @@
 const router = require('express').Router();
 const { Property, User } = require('../models');
-const withAuth = require('../utils/auth');
+// const withAuth = require('../utils/auth');
 
 //property_dashboard route--displays all properties
-//get all properties
-router.get('/', async (req, res) => {
-  const propertyData = await Property.findAll({
-    include: [
-      {
-        model: User,
-        attributes: ['id'],
-      },
-    ],
+
+router.get('/',  async (req, res) => {
+  try {
+    const propertyData = await Property.findAll({
+      where: {
+        landlord_id: req.session.user_id
+      }
+    });
+      
+    const properties = propertyData.map((properties) =>
+    properties.get({ plain: true }));
+  
+    res.render('property_dashboard', { 
+      properties,
+    loggedIn: req.session.loggedIn
+    
   });
-  const properties = propertyData.map((properties) =>
-    properties.get({ plain: true })
-  );
-  res.render('property_dashboard', { properties });
-});
 
-
+  } catch (err) {
+    console.log(err);
+    }
+  });
+  
 // render add property page
-router.get('/update', (req, res) => {
+// router.get('/update', withAuth, (req, res) => {
+  router.get('/update',  (req, res) => {
   res.render('add_property');
 });
 
 
 // route to view a single property on display_property
-router.get('/:id', async (req, res) => {
+// router.get('/:id', withAuth, async (req, res) => {
+  router.get('/:id',  async (req, res) => {
   try {
     const propertyData = await Property.findByPk(req.params.id, {
       include: [
         {
           model: User,
-          attributes: ['id'],
+          attributes: ['user_id'],
         },
       ],
     });
@@ -49,23 +57,23 @@ router.get('/:id', async (req, res) => {
   }
 });
 
-router.get('/property', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Property }],
-    });
+// // router.get('/property', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await User.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//       include: [{ model: Property }],
+//     });
 
-    const user = userData.get({ plain: true });
+//     const user = userData.get({ plain: true });
 
-    res.render('property', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// //     res.render('property', {
+// //       ...user,
+// //       logged_in: true
+// //     });
+// //   } catch (err) {
+// //     res.status(500).json(err);
+// //   }
+// // });
 
 module.exports = router;
