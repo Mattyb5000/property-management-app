@@ -6,25 +6,15 @@ const { Property, User } = require('../models');
 
 router.get('/',  async (req, res) => {
   try {
-    
-    // const userData = await User.findByPk(req.session.user_id);
-
-    // console.log(userData);
     const propertyData = await Property.findAll({
       where: {
         landlord_id: req.session.user_id
       }
     });
-     
-    console.log("this is the propertyData");
-    console.log(propertyData);
       
     const properties = propertyData.map((properties) =>
     properties.get({ plain: true }));
   
-    console.log("these are the mapped properties");
-    console.log( properties);
-
     res.render('property_dashboard', { 
       properties,
     loggedIn: req.session.loggedIn
