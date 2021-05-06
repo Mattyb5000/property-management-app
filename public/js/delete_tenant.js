@@ -13,7 +13,7 @@ const crazy = function deleteTenantFormHandler() {
       ];
   
       
-      const response =  fetch(`/api/tenant/${id}`, {
+      const response =  fetch(`/api/tenant/delete/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -29,9 +29,7 @@ const crazy = function deleteTenantFormHandler() {
       document.location.replace(`/tenant`);
     }
   };
-  
-  
-  
+    
   
   // calls in #update_tenant submit button
   document.querySelector("#delete").addEventListener("click", crazy);

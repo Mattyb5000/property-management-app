@@ -30,6 +30,11 @@ router.get('/', async (req, res) => {
   }
 });
 
+// render view single tenant page
+// router.get('/:id', withAuth, async (req, res) => {
+
+
+
 //render add tenants page
 router.get('/create/:id', async (req, res) => {
   console.log('you are in the create tenant route');
@@ -48,45 +53,31 @@ router.get('/create/:id', async (req, res) => {
   }
  });
 
-
-// render view single tenant page
-// router.get('/:id', withAuth, async (req, res) => {
-
-router.get('/:id', async (req, res) => {
- try {
-   const tenantData = await Tenant.findByPk(req.params.id, {
-     include: [
-       {
-         model: Property,
-         attributes: ['address', 'leaseEnd', 'property_id', 'landlord_id'],
-       },
-     ],
-   });
-
-   const tenant = tenantData.get({ plain: true });
-   res.render('view_tenant', { 
-     tenant,
+ router.get('/:id', async (req, res) => {
+  try {
+    const tenantData = await Tenant.findByPk(req.params.id, {
+      include: [
+        {
+          model: Property,
+          attributes: ['address', 'leaseEnd'],
+        },
+      ],
     });
- } catch (err) {
-   console.log(err);
+    
+    const tenant = tenantData.get({ plain: true });
+    console.log('this is tenant ' , tenant);
 
-   res.status(500).json(err);
- }
-});
+    res.render('view_tenant', { 
+      tenant,
+      logged_in: req.session.logged_in
+     });
+  } catch (err) {
+    console.log(err);
  
+    res.status(500).json(err);
+  }
+ });
 
-// router.get('/:id', async (req, res) => {
-//   const tenantData = await Tenant.findAll({
-//     where: {
-//       id: req.params.id,
-//     },
-//   }).catch((err) => {
-//     res.json(err);
-//   });
-//   const tenants = tenantData.map((tenants) => tenants.get({ plain: true }));
-//   console.log('This is the right data', tenants);
-//   res.render('view_tenant', { tenants });
-// });
 
 // render update tenant page
 router.get('/update/:id', (req, res) => {
