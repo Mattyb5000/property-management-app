@@ -6,7 +6,7 @@
     <h3>Current Tenants:</h3>
     <br>
     <br>
-    <a class="btn btn-primary" href="/tenant/create" role="button">Add A Tenant</a>
+    
     {{#each tenants as |tenant|}}
     <div class="row flex-row align-items-center justify-content-around">
         <div class="col-10 tenant-list">
@@ -21,7 +21,6 @@
                 <tbody>
                     <tr>
                         <td>{{tenant.first_name}} {{tenant.last_name}}</td>
-                        {{!-- pull in prop address --}}
                         <td>{{property.address}}</td>
                         <td>{{property.leaseEnd}}</td>
                     </tr>
@@ -29,7 +28,7 @@
             </table>
         </div>
         <div class="col-2">
-            <a class="btn btn-primary" href="/tenant/{{tenant.id}}" role="button">Select Tenant</a>
+            <a class="btn btn-primary" href="/tenant/{{id}}" role="button">Select Tenant</a>
         </div>
     </div>
     {{/each}}

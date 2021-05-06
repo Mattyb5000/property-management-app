@@ -44,6 +44,13 @@ Tenant.init(
             model: "property",
             key: "id",
         }
+    },
+    landlord_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "property",
+        key: "landlord_id",
+      }
     }
   },
   {

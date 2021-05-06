@@ -50,30 +50,12 @@ router.get('/',  async (req, res) => {
     res.render('display_property', {
       property,
     });
+    console.log(property.id);
   } catch (err) {
     console.log(err);
 
     res.status(500).json(err);
   }
 });
-
-// // router.get('/property', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Property }],
-//     });
-
-//     const user = userData.get({ plain: true });
-
-// //     res.render('property', {
-// //       ...user,
-// //       logged_in: true
-// //     });
-// //   } catch (err) {
-// //     res.status(500).json(err);
-// //   }
-// // });
 
 module.exports = router;

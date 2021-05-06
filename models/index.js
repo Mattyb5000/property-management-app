@@ -18,4 +18,12 @@ Tenant.belongsTo(Property, {
     foreignKey: 'property_id',
 });
 
+User.hasMany(Tenant, {
+  foreignKey: 'landlord_id',
+});
+
+Tenant.belongsTo(User, {
+  foreignKey: 'landlord_id',
+});
+
 module.exports = { User, Property, Tenant };
