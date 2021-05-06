@@ -31,12 +31,14 @@ router.get('/', async (req, res) => {
 });
 
 //render add tenants page
-router.get('/create/:id', (req, res) => {
+router.get('/create/:id', async (req, res) => {
   console.log('you are in the create tenant route');
   try {
     const propertyData = await Property.findByPk(req.params.id);
  
     const property = propertyData.get({ plain: true });
+    console.log('this is property with new tenant');
+    console.log(property);
     res.render('add_tenants', { property }); 
       
   } catch (err) {

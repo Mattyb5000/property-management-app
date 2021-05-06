@@ -6,9 +6,6 @@ const deleteBtn = document.querySelector("#delete");
 const crazy = function deleteTenantFormHandler() {
    
     
-    
-    
-    
     // window.location gives us access to the URL. We then use the .split() method to access the number at the end of the URL and set that equal to id.
     
     const id = window.location.toString().split('/')[

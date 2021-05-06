@@ -58,7 +58,6 @@ router.post('/login', async (req, res) => {
       console.log('Im in req.session.save');
       req.session.user_id = userData.user_id;
       req.session.loggedIn = true;
-      debugger;
       console.log(userData.user_id);
       console.log(req.session.user_id);
 

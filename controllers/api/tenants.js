@@ -59,27 +59,27 @@ router.put('/:id', (req, res) => {
 
 
 //route to create a new tenant
-router.post('/',  (req, res) => {
-  Tenant.create(
-    {
-      phone_number: req.body.phone_number,
-      email: req.body.email,
-      first_name: req.body.first_name,
-      last_name: req.body.last_name,
-      emer_contact_name: req.body.emer_contact_name,
-      emer_contact_phone: req.body.emer_contact_phone,
-      landlord_id: req.body.user_id,
-    },
-  )
-    .then((newTenant) => {
-      // Sends the updated book as a json response
-      res.json(newTenant);
-    })
-    .catch((err) => {
-      console.log(err)
-      res.json(err)
-    });
-});
+// router.post('/',  (req, res) => {
+//   Tenant.create(
+//     {
+//       phone_number: req.body.phone_number,
+//       email: req.body.email,
+//       first_name: req.body.first_name,
+//       last_name: req.body.last_name,
+//       emer_contact_name: req.body.emer_contact_name,
+//       emer_contact_phone: req.body.emer_contact_phone,
+//       landlord_id: req.body.user_id,
+//     },
+//   )
+//     .then((newTenant) => {
+//       // Sends the updated book as a json response
+//       res.json(newTenant);
+//     })
+//     .catch((err) => {
+//       console.log(err)
+//       res.json(err)
+//     });
+// });
 
 
 

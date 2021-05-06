@@ -4,10 +4,14 @@
     <br>
     <br>
     <br>
+    {{#if property}}
     <div class="container">
         <div class="row d-flex justify-content-center">
             <div class="col-12 col-md-7">
                 <h3>Add Tenant:</h3>
+                <br>
+                <div><span>Property id: </span><span id="propId">{{property.id}}</span></div> 
+                <div><span>Property Address: </span><span class="propAddress">{{property.address}}</span></div>
                 <br>
                 <form class="form new-tenant-form" id="update_tenant">
                       <div class="form-group">
@@ -34,6 +38,10 @@
                         <label for="emer_contact_phone">Emergency Contact Phone:</label>
                         <textarea class="form-control my-2" rows="1" id="emer_contact_phone" name="emer_contact_phone"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="property_id">Property Id:</label>
+                        <textarea class="form-control my-2" rows="1" id="property_id" value="{{property.id}}name="property_id">{{property.id}}</textarea>
+                    </div>
                     <br>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary" id="addMe">Add</button>
@@ -42,5 +50,6 @@
             </div>
         </div>
     </div>
-    </div>
+    </div>{{/if}}
+
     <script src="/js/add_tenant.js"></script>
