@@ -5,13 +5,15 @@ const { Property, User } = require('../models');
 //property_dashboard route--displays all properties
 
 router.get('/',  async (req, res) => {
+  console.log('You are in /property route');
+  console.log(req.session.user_id);
   try {
-    const propertyData = await Property.findAll({
+     const propertyData = await Property.findAll({
       where: {
-        landlord_id: req.session.user_id
+        landlord_id: req.session.user_id,
       }
     });
-      
+      console.log("pulled properties");
     const properties = propertyData.map((properties) =>
     properties.get({ plain: true }));
   
